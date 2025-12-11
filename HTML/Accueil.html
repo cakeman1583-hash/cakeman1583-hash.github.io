@@ -12,25 +12,37 @@
 	</head>
 	<body>
 		<div id="page">
+			<!--Header du site (commun à toutes les pages)-->
 			<header id="site-header">
 				<h1>RateMe</h1>
 				<p class="tagline">Notez et partagez vos avis</p>
-			</header>
-
 			<nav id="main-nav">
-				<ul>
-					<li><a href="Acceuil.html">Accueil</a></li>
-					<li><a href="#">Explorer</a></li>
-					<li><a href="#">Connexion</a></li>
-				</ul>
+				<a href="Accueil.html">Accueil</a><a href="#">Explorer</a><a href="#">Soumettre un vote</a><a href="./Credits.html">Crédits</a>
 			</nav>
-
-			<main id="content" role="main">
+			</header>
+			<!--Contenu principal de la page-->
+			<main id="content">
 				<section id="hero">
 					<h2>Bienvenue sur RateMe</h2>
 					<p>Découvrez et notez des contenus.</p>
 				</section>
+				<!--Capsules de sujets de notations-->
+				<section id="capsules">
+					<!-- Exemple de capsule -->
+					<div class="capsule">
+						<img id="imagecapsule" src="../Images/exemple.webp" alt="Image illustrative" />
+						<span class="vertical-line"></span>
+						<div id="textcapsule">
+							<h3 id="titrecapsule">Sujet de ce qui est à voter</h3>
+							<p id="desccapsule">Description de ce qui est à voter</p>
+							<div id="notecapsule">
+								<span id="Ouicapsule">Oui : 64%</span>
+								<span id="Noncapsule">Non : 36%</span>
+							</div>
+						</div>
+					</div>
 
+				</section>
 				<section id="features">
 					<h3>Fonctionnalités</h3>
 					<ul>
@@ -39,7 +51,7 @@
 					</ul>
 				</section>
 			</main>
-
+			<!--Footer du site (commun à toutes les pages)-->
 			<footer id="site-footer">
 				<p>&copy; 2025 RateMe</p>
 			</footer>
