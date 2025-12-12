@@ -7,3 +7,5 @@ Pour visualiser le site, veuillez installer l'extension [Live Server](https://ma
 Puis cliquer ici :
 
 ![tutoriel utilisation Live Server](https://github.com/ritwickdey/vscode-live-server/raw/HEAD/images/Screenshot/vscode-live-server-statusbar-3.jpg)
+
+Pour ouvrir le site, il faut cilquer sur ce [lien](https://cakeman1583-hash.github.io/HTML/Accueil).
