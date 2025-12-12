@@ -1,6 +1,6 @@
 function updateVoteBars(VotePour, VoteContre, NuméroCapsule) {
     // Calcul du pourcentage
-    const pourcentagePour = (VotePour / (VotePour + VoteContre)) * 100;
+    const pourcentagePour = pourcentageVotePour(VotePour, VoteContre);
     const pourcentageContre = 100 - pourcentagePour;
 
     // Récupération des éléments
@@ -21,6 +21,11 @@ function updateVoteBars(VotePour, VoteContre, NuméroCapsule) {
     segmentPour.textContent = Math.round(pourcentagePour) + " %";
     segmentContre.textContent = Math.round(pourcentageContre) + " %";
 }
-
+function pourcentageVotePour(VotePour, VoteContre) {
+    return (VotePour / (VotePour + VoteContre)) * 100;
+}
+function pourcentageVoteContre(VotePour, VoteContre) {
+    return 100-pourcentageVotePour(VotePour, VoteContre);
+}
 // Exemple
-updateVoteBars(1800, 525, "exemple");
+updateVoteBars(1800, 590, "exemple");

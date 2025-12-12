@@ -10,3 +10,5 @@ Puis cliquer ici :
 
 
 Pour ouvrir le site, il faut cilquer sur ce [lien](https://cakeman1583-hash.github.io/HTML/Accueil).
+
+Le fichier d'idées s'appelles [idées.txt](./idées.txt).

@@ -1,1 +1,4 @@
 Ici sont stockées les idées pour le site :
+
+Ajouter un système pour ajouter des capsules dans le site à l'aide d'un formulaire
+Ajouter une page secrette avec un arg (aliens qui aprennent sur l'humanitée grâce au site)
