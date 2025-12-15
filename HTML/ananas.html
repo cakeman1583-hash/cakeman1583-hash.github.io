@@ -1,0 +1,57 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+	<head>
+		<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>OKOrNote</title>
+		<script type="text/javascript" src="../JS/main.js" defer></script>
+		<link rel="stylesheet" type="text/css" href="../CSS/styles.css" />
+	</head>
+	<body>
+		<div id="page">
+			<!--Header du site (commun à toutes les pages)-->
+			<header id="site-header">
+				<h1 id="TitreHeader">OKOrNote</h1>
+				<p class="tagline">Notez et partagez vos avis</p>
+			<nav id="main-nav">
+				<a href="Accueil.html">Accueil</a><a href="#">Explorer</a><a href="#">Soumettre un vote</a><a href="./Credits.html">Crédits</a>
+			</nav>
+			</header>
+			<!--Contenu principal de la page-->
+			<main id="content">
+				<section id="hero">
+					<h2>Bienvenue sur OKOrNote</h2>
+					<p>Découvrez et notez des contenus.</p>
+				</section>
+				<!--Capsules de sujets de notations-->
+				<section id="capsules">
+					<!-- Exemple de capsule -->
+					<div class="capsule" id="capsuleexemple">
+						<img class="imagecapsule" src="../Images/exemple.webp" alt="Image illustrative" />
+						<span class="vertical-line"></span>
+						<div class="textcapsule">
+							<!--Sujet de ce qui est à voter-->
+							<h3 class="titrecapsule">Pour ou contre l'ananas sur la pizza ?</h3>
+							<!--Description de ce qui est à voter-->
+							<p class="desccapsule">perso j'ai jamais gouté mais ya beaucoup de gens qui aiment et beaucoup de gens qui detestent.</p>
+              <br/><span class="vote" id="voteOK">Pour</span><span class="vote" id="neutre">Neutre</span><span class="vote" id="voteNot">Contre</span>
+							<!-- Barre de vote -->
+							<div class="vote-bar">
+								<div class="segmentpour" id="segmentpourexemple">62%</div>
+								<div class="segmentcontre" id="segmentcontreexemple">38%</div>
+							</div>
+						</div>
+					</div>
+					
+				</section>
+			</main>
+			<!--Footer du site (commun à toutes les pages)-->
+			<footer id="site-footer">
+				<a href="Accueil.html">&copy; OKOrNote</a>
+			</footer>
+		</div>
+	</body>
+</html>
