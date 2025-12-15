@@ -9,7 +9,7 @@ if (window.localStorage.voteAnanas=="OK") {
 function voterOK() {
   window.localStorage.voteAnanas="OK";
 }
-function voteNeutreK() {
+function voteNeutre() {
   window.localStorage.voteAnanas="OR";
 }
 function voterNot() {
