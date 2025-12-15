@@ -117,7 +117,10 @@ body{
     margin-bottom: 30px;
 }
 .vote {
-    width: 33.3%;
+    height: 20px;
+    width: 11%;
+    padding-left: 11%;
+    padding-right: 11%;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight: bold;
     font-size: 12px;
@@ -126,3 +129,14 @@ body{
     align-items: center;
     justify-content: center;
 }
+.vote #voteOK {
+    background-color: green;
+}
+.vote #voteNeutre {
+    width: 12%;
+    background-color: #A6A6A6;
+}
+.vote #voteNot {
+    background-color: red;
+}
+
