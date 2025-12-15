@@ -5,7 +5,7 @@ var not=document.getElementById("voteNot");
 function voterOK() {
   window.localStorage.voteAnanas="OK";
 }
-function voteNeutre() {
+function voterNeutre() {
   window.localStorage.voteAnanas="OR";
 }
 function voterNot() {
