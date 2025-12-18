@@ -7,10 +7,7 @@ function update() {
     ananas.innerHTML = "Tu as voté Pour.";
     ok.style.border="1px solid gold;";
   }
-  if (window.localStorage.voteAnanas=="OR") {
-    ananas.innerHTML = "Tu as voté Neutre.";
-    or.style.border="1px solid gold;";
-  }
+
   if (window.localStorage.voteAnanas=="NOT") {
     ananas.innerHTML = "Tu as voté Contre.";
     not.style.border="1px solid gold;";
@@ -18,10 +15,6 @@ function update() {
 }
 function voterOK() {
   window.localStorage.voteAnanas="OK";
-  update();
-}
-function voterNeutre() {
-  window.localStorage.voteAnanas="OR";
   update();
 }
 function voterNot() {
