@@ -1,5 +1,5 @@
 var ananas=document.getElementById("voteAnanas");
-function update() {
+function updateAnanas() {
   if (window.localStorage.voteAnanas=="OK") {
     ananas.innerHTML = "Tu as voté Pour.";
   }
@@ -10,4 +10,4 @@ function update() {
     ananas.innerHTML = "Tu as voté Contre.";
   }
 }
-update();
+updateAnanas();
