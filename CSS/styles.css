@@ -126,9 +126,6 @@ body{
 #voteOK {
     background-color: green;
 }
-#voteNeutre {
-    background-color: #A6A6A6;
-}
 #voteNot {
     background-color: red;
 }
