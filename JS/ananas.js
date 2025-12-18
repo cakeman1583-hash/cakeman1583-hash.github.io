@@ -5,12 +5,12 @@ var not=document.getElementById("voteNot");
 function update() {
   if (window.localStorage.voteAnanas=="OK") {
     ananas.innerHTML = "Tu as voté Pour.";
-    ok.style.border="1px solid gold;";
+    ok.style.borderColor="#FFD700;";
   }
 
   if (window.localStorage.voteAnanas=="NOT") {
     ananas.innerHTML = "Tu as voté Contre.";
-    not.style.border="1px solid gold;";
+    not.style.borderColor="#FFD700;";
   }
 }
 function voterOK() {
