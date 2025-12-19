@@ -17,11 +17,14 @@
     padding: 15px;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 30px;
+    box-shadow: 4px 4px 8px grey;
 }
 .textcapsule{
     width: 80%;
     display: flex;
     flex-direction: column;
+    height: auto;
 }
 .titrecapsule{
     padding-left: 3%;
@@ -42,6 +45,8 @@
 .imagecapsule{
     width: 200px;
     height: 150px;
+    border-radius: 20px;
+    box-shadow: 2px 2px 5px grey;
 }
 .vote-bar{
     display: flex;
@@ -104,7 +109,7 @@ body{
     padding: 0;
     min-height: 100vh;
     position: relative;
-    padding-bottom: 60px; /* Height of the footer */
+    padding-bottom: 60px; /* Hauteur du footer */
     box-sizing: border-box;
 }
 #TitreHeader{
@@ -116,17 +121,50 @@ body{
     margin-top: 30px;
     margin-bottom: 30px;
 }
-.vote {
+.vote button {
     width: 60px;
     height: 20px;
     border-radius: 10px;
     margin: 10px 10px 10px;
     border: 1px solid black;
 }
-#voteOK {
+.voteOK {
     background-color: green;
 }
-#voteNot {
+.voteNot {
     background-color: red;
 }
 
+/* État sélectionné : mise en évidence par une bordure dorée */
+.vote button.selected, .vote .selected {
+    box-shadow: 0 0 0 3px rgba(255,215,0,0.25) inset;
+    border: 1px solid #FFD700;
+}
+
+/* Layout: place vote controls (buttons) to the left of the vote bar */
+.vote{
+    display: flex;
+    align-items: center;
+    margin-top: auto;
+    gap: 12px;
+}
+.vote-controls{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+}
+.vote button {
+    margin: 6px;
+}
+.vote-bar{
+    flex: 1 1 auto;
+    min-width: 160px;
+}
+#Credits{
+    width: 61.8%;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16px;
+}

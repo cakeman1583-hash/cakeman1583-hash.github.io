@@ -16,9 +16,9 @@
 			<header id="site-header">
 				<h1 id="TitreHeader">OKOrNote</h1>
 				<p class="tagline">Notez et partagez vos avis</p>
-			<nav id="main-nav">
-				<a href="Accueil.html">Accueil</a><a href="#">Explorer</a><a href="#">Soumettre un vote</a><a href="./Credits.html">Crédits</a>
-			</nav>
+				<nav id="main-nav">
+					<a href="Accueil.html">Accueil</a><a href="#">Explorer</a><a href="#">Soumettre un vote</a><a href="./Credits.html">Crédits</a>
+				</nav>
 			</header>
 			<!--Contenu principal de la page-->
 			<main id="content">
@@ -30,26 +30,57 @@
 				<section id="capsules">
 					<!-- Exemple de capsule -->
 					<div class="capsule" id="capsuleexemple">
-						<img class="imagecapsule" src="../Images/exemple.webp" alt="Image illustrative" />
+						<img class="imagecapsule" src="../Images/exemple.webp" alt="Image illustrative exemple" />
 						<span class="vertical-line"></span>
 						<div class="textcapsule">
 							<!--Sujet de ce qui est à voter-->
-							<h3 class="titrecapsule">Sujet de ce qui est à voter</h3>
+							<a class="titrecapsule" href="./exemple.html">Sujet de ce qui est à voter</a>
 							<!--Description de ce qui est à voter-->
 							<p class="desccapsule">Description de ce qui est à voter</p>
-							<!-- Barre de vote -->
-							<div class="vote-bar">
-								<div class="segmentpour" id="segmentpourexemple">62%</div>
-								<div class="segmentcontre" id="segmentcontreexemple">38%</div>
+							<!--Boutons de vote Pour ou contre-->
+							<div class="vote">
+								<div class="vote-controls">
+									<button class="voteOK" id="voteOKexemple" onclick="voterOK('exemple')">Pour</button>
+									<button class="voteNot" id="voteNotexemple" onclick="voterNot('exemple')">Contre</button>
+								</div>
+								<!-- Barre de vote -->
+								<div class="vote-bar">
+									<div class="segmentpour" id="segmentpourexemple"></div>
+									<div class="segmentcontre" id="segmentcontreexemple"></div>
+								</div>
 							</div>
 						</div>
 					</div>
-					
+					<!-- Capsule pour l'ananas -->
+					<div class="capsule" id="capsuleananas">
+						<img class="imagecapsule" src="../Images/ananaspizza.webp" alt="Image illustrative" />
+						<span class="vertical-line"></span>
+						<div class="textcapsule">
+							<!--Sujet de ce qui est à voter-->
+							<a class="titrecapsule" href="./ananas.html">Pour ou contre l'ananas sur la pizza ?</a>
+							<!--Description de ce qui est à voter-->
+							<p class="desccapsule">perso j'ai jamais gouté mais ya beaucoup de gens qui aiment et beaucoup de gens qui detestent.</p>
+							<!-- Boutons de vote Pour ou contre et barre de vote -->
+							<div class="vote">
+								<div class="vote-controls">
+									<button class="voteOK" id="voteOKananas" onclick="voterOK('ananas')">Pour</button>
+									<button class="voteNot" id="voteNotananas" onclick="voterNot('ananas')">Contre</button>
+								</div>
+								<!-- Barre de vote -->
+								<div class="vote-bar">
+									<div class="segmentpour" id="segmentpourananas"></div>
+									<div class="segmentcontre" id="segmentcontreananas"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+
 				</section>
 			</main>
 			<!--Footer du site (commun à toutes les pages)-->
 			<footer id="site-footer">
-				<a href="Accueil.html">&copy; OKOrNote</a>
+				<a href="./Accueil.html">&copy; OKOrNote</a>
 			</footer>
 		</div>
 	</body>

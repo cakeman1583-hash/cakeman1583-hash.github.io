@@ -29,7 +29,7 @@
 				<!--Capsules de sujets de notations-->
 				<section id="capsules">
 					<!-- Exemple de capsule -->
-					<div class="capsule" id="capsuleexemple">
+					<div class="capsule" id="capsuleananas">
 						<img class="imagecapsule" src="../Images/exemple.webp" alt="Image illustrative" />
 						<span class="vertical-line"></span>
 						<div class="textcapsule">
@@ -37,15 +37,15 @@
 							<h3 class="titrecapsule">Pour ou contre l'ananas sur la pizza ?</h3>
 							<!--Description de ce qui est à voter-->
 							<p class="desccapsule">perso j'ai jamais gouté mais ya beaucoup de gens qui aiment et beaucoup de gens qui detestent.</p>
-							<p class="desccapsule" id="voteAnanas">Tu n'as pas encore voté.</p>
-							<div>
-              				<button class="vote" id="voteOK" onclick="voterOK()">Pour</button>
-							<button class="vote" id="voteNot" onclick="voterNot()">Contre</button>
+							<!--Boutons de vote Pour ou contre-->
+							<div class="vote">
+              				<button class="voteOK" id="voteOKananas" onclick="voterOK('ananas')">Pour</button>
+							<button class="voteNot" id="voteNotananas" onclick="voterNot('ananas')">Contre</button>
 							</div><br/>
 							<!-- Barre de vote -->
 							<div class="vote-bar">
-								<div class="segmentpour" id="segmentpourexemple">62%</div>
-								<div class="segmentcontre" id="segmentcontreexemple">38%</div>
+								<div class="segmentpour" id="segmentpourananas">62 %</div>
+								<div class="segmentcontre" id="segmentcontreananas">38 %</div>
 							</div>
 						</div>
 					</div>
