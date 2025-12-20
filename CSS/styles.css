@@ -3,10 +3,31 @@
     padding: 3px;
     background-color: rgb(248, 243, 243);
 }
+.tagline{
+    margin-top: 0;
+    font-size: 16px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 #main-nav a{
     padding: 20px;
 }
+#hero{
+    text-align: center;
+    background-color: white;
+    border-style: solid;
+    border-radius: 20px;
+    border-width: 2px;
+    border-color: black;
+    padding: 15px;
+    box-shadow: 4px 4px 8px grey;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
 .capsule{
+    background-color: white;
     width: 61.8%;
     border-style: solid;
     border-radius: 30px;
@@ -101,7 +122,7 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: bold;
     padding: 20px;
-    background-color: rgb(250, 237, 220);
+    background-color: rgb(255, 249, 241);
     border-bottom: 2px solid black;
 }
 body{
@@ -111,22 +132,14 @@ body{
     position: relative;
     padding-bottom: 60px; /* Hauteur du footer */
     box-sizing: border-box;
+    background-image: url('../Images/fond.webp');
+    background-attachment: fixed;
 }
 #TitreHeader{
     margin: 0;
     font-size: 36px;
-}
-#hero{
-    text-align: center;
-    margin-top: 30px;
-    margin-bottom: 30px;
-}
-.vote button {
-    width: 60px;
-    height: 20px;
-    border-radius: 10px;
-    margin: 10px 10px 10px;
-    border: 1px solid black;
+    width: 300px;
+    height: auto;
 }
 .voteOK {
     background-color: green;
@@ -156,6 +169,11 @@ body{
 }
 .vote button {
     margin: 6px;
+    width: 60px;
+    height: 20px;
+    border-radius: 10px;
+    margin: 10px 10px 10px;
+    border: 1px solid black;
 }
 .vote-bar{
     flex: 1 1 auto;
@@ -167,4 +185,12 @@ body{
     margin-right: auto;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 16px;
+}
+#credits{
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+#capsuleSujetAnanas{
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
