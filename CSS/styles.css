@@ -208,3 +208,14 @@ body{
     margin-top: 30px;
     margin-bottom: 30px;
 }
+
+canvas {
+    align-items: center;
+    margin-left: 30%;
+    height: 400px;
+    width: 600px;
+}
+
+#textLogo {
+    margin-right: 80%;
+}
