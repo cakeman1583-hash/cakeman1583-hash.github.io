@@ -25,7 +25,7 @@
                     <div class="capsule" id="capsuleSoumettre">
                         <div class="textcapsule">
                             <h2 class="titrecapsule">Créer un vote</h2>
-                            <p class="desccapsule">Proposez un nouveau sujet à la communauté. Remplissez le titre et décrivez brièvement le pour/contre.</p>
+                            <p class="desccapsule">Proposez un nouveau sujet à la communauté. Remplissez ce formulaire.</p>
 
                             <!-- Notification de succès -->
                             <div id="notificationSucces" class="notification-success" style="display:none;">
@@ -34,11 +34,74 @@
                             </div>
 
                             <form id="formSoumettre" action="#" method="post">
-                                <label for="titre">Titre du vote</label>
-                                <input type="text" id="titre" name="titre" required />
+                                <!-- Section: Informations de base -->
+                                <fieldset>
+                                    <legend>Informations de base</legend>
+                                    
+                                    <label for="titre">Titre du vote</label>
+                                    <input type="text" id="titre" name="titre" required />
 
-                                <label for="description">Description</label>
-                                <textarea id="description" name="description" rows="6" required></textarea>
+                                    <label for="description">Description</label>
+                                    <textarea id="description" name="description" rows="6" required></textarea>
+
+                                    <label for="email">Email (contact)</label>
+                                    <input type="email" id="email" name="email" />
+
+                                    <label for="tel">Numéro de contact</label>
+                                    <input type="tel" id="tel" name="tel" placeholder="+33 1 23 45 67 89" />
+
+                                    <label for="url">Lien de référence</label>
+                                    <input type="url" id="url" name="url" placeholder="https://exemple.com" />
+                                </fieldset>
+
+                                <!-- Section: Paramètres du vote -->
+                                <fieldset>
+                                    <legend>Paramètres du vote</legend>
+
+                                    <label for="typeVote">Type de vote</label>
+                                    <div style="margin-bottom:12px;">
+                                        <label style="display:inline;margin-right:15px;"><input type="radio" name="typeVote" value="simple" checked /> Vote simple (Pour/Contre)</label>
+                                        <label style="display:inline;"><input type="radio" name="typeVote" value="multiple" /> Vote multiple</label>
+                                    </div>
+
+                                    <label for="couleur">Couleur d'identification</label>
+                                    <input type="color" id="couleur" name="couleur" value="#4CAF50" />
+
+                                    <label for="priorite">Priorité (0-100)</label>
+                                    <input type="range" id="priorite" name="priorite" min="0" max="100" value="50" />
+                                    <span id="valeurPriorite">50</span>
+
+                                    <label for="delai">Délai souhaité (en jours)</label>
+                                    <input type="number" id="delai" name="delai" min="1" max="365" value="7" />
+
+                                    <label for="dateDebut">Date de début</label>
+                                    <input type="date" id="dateDebut" name="dateDebut" />
+
+                                    <label for="heureDebut">Heure de début</label>
+                                    <input type="time" id="heureDebut" name="heureDebut" />
+
+                                    <label for="moisVote">Mois du vote</label>
+                                    <input type="month" id="moisVote" name="moisVote" />
+
+                                    <label for="semaineVote">Semaine du vote</label>
+                                    <input type="week" id="semaineVote" name="semaineVote" />
+                                </fieldset>
+
+                                <!-- Section: Vérification et pièces jointes -->
+                                <fieldset>
+                                    <legend>Vérification et attachements</legend>
+
+                                    <label for="motdepasse">Code de vérification (sécurité)</label>
+                                    <input type="password" id="motdepasse" name="motdepasse" placeholder="Code confidentiel" />
+
+                                    <label for="imagePiece">Joindre une image</label>
+                                    <input type="file" id="imagePiece" name="imagePiece" accept="image/*" />
+
+                                    <div style="margin-top:12px;">
+                                        <label style="display:block;"><input type="checkbox" name="conditions" id="conditions" /> J'accepte que ce vote soit public</label>
+                                        <label style="display:block;"><input type="checkbox" name="newsletter" id="newsletter" /> M'inscrire à la newsletter</label>
+                                    </div>
+                                </fieldset>
 
                                 <div style="display:flex;gap:12px;margin-top:12px;">
                                     <input type="submit" value="Soumettre" />
@@ -58,10 +121,44 @@
         <style>
         /* Harmonisation simple du formulaire avec le style du site */
         #formSoumettre label{ display:block; margin-top:10px; margin-bottom:6px; font-weight:bold; }
-        #formSoumettre input[type="text"], #formSoumettre textarea{ width: 100%; box-sizing: border-box; padding:8px; border:1px solid #ccc; border-radius:8px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        #formSoumettre input[type="submit"], #formSoumettre input[type="reset"]{ padding:8px 14px; border-radius:10px; border:1px solid black; cursor:pointer; }
+        #formSoumettre input[type="text"], 
+        #formSoumettre input[type="email"], 
+        #formSoumettre input[type="tel"],
+        #formSoumettre input[type="url"],
+        #formSoumettre input[type="password"],
+        #formSoumettre input[type="number"],
+        #formSoumettre input[type="date"],
+        #formSoumettre input[type="time"],
+        #formSoumettre input[type="month"],
+        #formSoumettre input[type="week"],
+        #formSoumettre input[type="file"],
+        #formSoumettre input[type="color"],
+        #formSoumettre textarea{ 
+            width: 100%; 
+            box-sizing: border-box; 
+            padding:8px; 
+            border:1px solid #ccc; 
+            border-radius:8px; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+        }
+        #formSoumettre input[type="submit"], 
+        #formSoumettre input[type="reset"]{ 
+            padding:8px 14px; 
+            border-radius:10px; 
+            border:1px solid black; 
+            cursor:pointer; 
+        }
         #formSoumettre input[type="submit"]{ background: #4CAF50; color:white; }
         #formSoumettre input[type="reset"]{ background: #f44336; color:white; }
+
+        /* Styles pour range et checkbox/radio */
+        #formSoumettre input[type="range"]{ width: 100%; margin-bottom: 6px; }
+        #formSoumettre input[type="checkbox"],
+        #formSoumettre input[type="radio"]{ margin-right: 8px; cursor: pointer; }
+
+        /* Fieldsets */
+        #formSoumettre fieldset{ border: 1px solid #ddd; border-radius: 8px; padding: 12px; margin-bottom: 12px; }
+        #formSoumettre legend{ font-weight: bold; color: #333; padding: 0 8px; }
 
         /* Notification de succès */
         .notification-success{ background: #d4edda; border: 2px solid #28a745; border-radius: 10px; padding: 15px; margin-bottom: 15px; text-align: center; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
@@ -73,7 +170,17 @@
         document.addEventListener('DOMContentLoaded', function () {
             var form = document.getElementById('formSoumettre');
             var notification = document.getElementById('notificationSucces');
+            var prioriteRange = document.getElementById('priorite');
+            var valeurPriorite = document.getElementById('valeurPriorite');
+
             if (!form || !notification) return;
+
+            // Afficher la valeur du range en temps réel
+            if (prioriteRange && valeurPriorite) {
+                prioriteRange.addEventListener('input', function () {
+                    valeurPriorite.textContent = this.value;
+                });
+            }
 
             form.addEventListener('submit', function (e) {
                 e.preventDefault();
