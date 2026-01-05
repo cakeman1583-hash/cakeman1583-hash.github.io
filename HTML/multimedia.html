@@ -10,6 +10,7 @@
         <title>Galerie Multimédia — OKOrNote</title>
         <link rel="icon" href="../Images/favicon.png" type="image/png" />
         <script type="text/javascript" src="../JS/main.js" defer></script>
+		<script type="text/javascript" src="../JS/navigation.js" defer></script>
         <link rel="stylesheet" type="text/css" href="../CSS/styles.css" />
     </head>
     <body>
@@ -91,6 +92,13 @@
                     </div>
                 </section>
             </main>
+
+            <!-- Navigation entre les pages -->
+            <section class="nav-pagination">
+                <button onclick="allerPrecedent()">← Précédent</button>
+                <a href="./index.html">Sommaire</a>
+                <button onclick="allerSuivant()">Suivant →</button>
+            </section>
 
             <footer id="site-footer">
                 <a href="./Credits.html">&copy; OKOrNote</a>
