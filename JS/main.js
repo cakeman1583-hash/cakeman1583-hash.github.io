@@ -23,8 +23,10 @@ function initVotes(capsule, pourDefault, contreDefault) {
 }
 
 // initialisation des votes pour les capsules
-initVotes('exemple', 62, 38);
+initVotes('usb', 62, 38);
 initVotes('ananas', 20, 15);
+initVotes('voteobli', 5, 28);
+initVotes('patesketchup', 30, 47);
 
 function getTotals(capsule) {
   return {
@@ -77,6 +79,12 @@ function applyVote(capsule, choice) { // choice = 'pour' ou 'contre'
   }
 
   saveTotals(capsule, pour, contre, user);
+  // notifier les autres scripts que les totaux ont changé
+  try {
+    document.dispatchEvent(new CustomEvent('votesChanged', { detail: { capsule: capsule } }));
+  } catch (e) {
+    // ignore si CustomEvent limité
+  }
   updateUI(capsule);
 }
 
@@ -100,6 +108,8 @@ function updateVoteBars(VotePour, VoteContre, capsule) {
 
 // initialise l'affichage au chargement
 document.addEventListener('DOMContentLoaded', function () {
-    updateUI('exemple');
+    updateUI('usb');
     updateUI('ananas');
+    updateUI('voteobli');
+    updateUI('patesketchup');
 });

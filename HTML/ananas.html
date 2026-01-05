@@ -18,7 +18,7 @@
 				<img id="TitreHeader" src="../Images/OKOrNote.png" alt="Logo OKOrNote" />
 				<p class="tagline">Notez et partagez vos avis</p>
 				<nav id="main-nav">
-					<a href="Accueil.html">Accueil</a><a href="#">Explorer</a><a href="#">Soumettre un vote</a><a href="./Credits.html">Crédits</a>
+					<a href="Accueil.html">Accueil</a><a href="./Credits.html">Crédits</a>
 				</nav>
 			</header>
 			<!--Contenu principal de la page-->
@@ -26,9 +26,46 @@
 				<!--Capsules de sujets de notations-->
 				<section id="capsules">
 					<!-- Exemple de capsule -->
-					<div class="capsule" id="capsuleSujetAnanas">
+					<div class="capsule" id="capsuleSujetInfo">
 						<div class="textcapsule">
-							C'est ici qu'on parle de l'ananas sur la pizza.
+							<a class="titrecapsule" href="./ananas.html">L'ananas sur la pizza</a>
+							<p class="desccapsule">Un débat populaire : certains adorent l'association sucré/salé, d'autres estiment que la pizza doit rester traditionnelle.</p>
+
+							<div class="proscons">
+								<h4>Pour</h4>
+								<ul>
+									<li>Apporte une touche sucrée qui contraste avec le salé.</li>
+									<li>Plait à beaucoup de gens et permet des variations gustatives.</li>
+								</ul>
+								<h4>Contre</h4>
+								<ul>
+									<li>Considéré comme non traditionnel par les puristes.</li>
+									<li>La texture/jonction de saveurs ne plaît pas à tout le monde.</li>
+								</ul>
+							</div>
+
+							<table class="stats-table" id="statsAnanas" aria-label="Statistiques du vote pour l'ananas">
+								<thead>
+									<tr><th>Option</th><th>Votes</th><th>Pourcentage</th></tr>
+								</thead>
+								<tbody>
+									<tr><td>Pour</td><td>—</td><td>—</td></tr>
+									<tr><td>Contre</td><td>—</td><td>—</td></tr>
+									<tr><td>Total</td><td colspan="2">—</td></tr>
+								</tbody>
+							</table>
+
+							<!-- Contrôles de vote pour l'ananas -->
+							<div class="vote" aria-label="Contrôles de vote">
+								<div class="vote-controls">
+									<button class="voteOK" id="voteOKananas" onclick="voterOK('ananas')">Pour</button>
+									<button class="voteNot" id="voteNotananas" onclick="voterNot('ananas')">Contre</button>
+								</div>
+								<div class="vote-bar">
+									<div class="segmentpour" id="segmentpourananas"></div>
+									<div class="segmentcontre" id="segmentcontreananas"></div>
+								</div>
+							</div>
 						</div>
 					</div>
 					
@@ -41,5 +78,84 @@
 		</div>
 		<script type="text/javascript" src="../JS/ananas.js"></script>
 		<script type="text/javascript" src="../JS/recap.js"></script>
+
+	<script>
+	// Remplit et rafraîchit le tableau de statistiques pour l'ananas;
+	(function () {
+		function safeNumber(v) { return Number(v) || 0; }
+		function getStored(name) {
+			if (typeof lsGet === 'function') return lsGet(name);
+			var v = localStorage.getItem(name);
+			return v === null ? null : JSON.parse(v);
+		}
+		function refreshStats() {
+			var pour = safeNumber(getStored('votePourananas'));
+			var contre = safeNumber(getStored('voteContreananas'));
+			var total = pour + contre;
+			var pPour = total === 0 ? 0 : Math.round((pour / total) * 100);
+			var pContre = 100 - pPour;
+			var tbody = document.querySelector('#statsAnanas tbody');
+			if (!tbody) return;
+			tbody.innerHTML = '';
+			var tr1 = document.createElement('tr');
+			tr1.innerHTML = '<td>Pour</td><td>' + pour + '</td><td>' + pPour + ' %</td>';
+			var tr2 = document.createElement('tr');
+			tr2.innerHTML = '<td>Contre</td><td>' + contre + '</td><td>' + pContre + ' %</td>';
+			var tr3 = document.createElement('tr');
+			tr3.innerHTML = '<td>Total</td><td colspan="2">' + total + '</td>';
+			tbody.appendChild(tr1);
+			tbody.appendChild(tr2);
+			tbody.appendChild(tr3);
+		}
+
+		document.addEventListener('DOMContentLoaded', function () {
+			refreshStats();
+			// s'assurer que la barre de vote locale est à jour (si updateUI est disponible)
+			if (typeof updateUI === 'function') updateUI('ananas');
+		});
+
+		// Écouter les changements de votes provenant d'autres scripts/pages
+		document.addEventListener('votesChanged', function (e) {
+			if (!e || !e.detail) return;
+			if (e.detail.capsule === 'ananas') {
+				refreshStats();
+				if (typeof updateUI === 'function') updateUI('ananas');
+			}
+		});
+
+		// Si l'utilisateur vote sur cette page, updateUI/applyVote déclenchera aussi l'événement
+		// mais on peut également rafraîchir après interaction au cas où.
+		document.addEventListener('click', function (ev) {
+			var id = ev.target && ev.target.id;
+			if (id === 'voteOKananas' || id === 'voteNotananas') {
+				// léger délai pour laisser main.js sauvegarder
+				setTimeout(refreshStats, 50);
+			}
+		});
+	})();
+	</script>
+
+	<style>
+	/* Styles locaux pour harmoniser le tableau avec le reste du site */
+	.stats-table{
+		width: 61.8%;
+		margin-top: 12px;
+		border-collapse: collapse;
+		border: 2px solid black;
+		font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+		background: white;
+	}
+	.stats-table th, .stats-table td{
+		border: 1px solid #ddd;
+		padding: 8px;
+		text-align: center;
+	}
+	.stats-table thead th{
+		background: #f4f4f4;
+		font-weight: bold;
+	}
+	.proscons h4{ margin: 8px 0 4px; }
+	.proscons ul{ margin: 0 0 8px 20px; }
+	</style>
 	</body>
 </html>

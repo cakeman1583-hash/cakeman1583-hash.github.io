@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+	<head>
+		<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>OKOrNote</title>
+		<link rel="icon" href="../Images/favicon.png" type="image/png" />
+		<script type="text/javascript" src="../JS/main.js" defer></script>
+		<link rel="stylesheet" type="text/css" href="../CSS/styles.css" />
+	</head>
+	<body>
+		<div id="page">
+			<header id="site-header">
+				<img id="TitreHeader" src="../Images/OKOrNote.png" alt="Logo OKOrNote" />
+				<p class="tagline">Notez et partagez vos avis</p>
+				<nav id="main-nav">
+					<a href="Accueil.html">Accueil</a><a href="./Credits.html">Crédits</a>
+				</nav>
+			</header>
+			<main id="content">
+				<section id="capsules">
+					<div class="capsule" id="capsuleSujetInfo">
+						<div class="textcapsule">
+							<a class="titrecapsule" href="./vote.html">Le vote obligatoire</a>
+							<p class="desccapsule">Un sujet polémique : faut-il rendre le vote obligatoire pour renforcer la participation ou préserver la liberté civique ?</p>
+
+							<div class="proscons">
+								<h4>Pour</h4>
+								<ul>
+									<li>Augmenter la participation et la représentativité.</li>
+									<li>Réduire l'influence des minorités actives.</li>
+								</ul>
+								<h4>Contre</h4>
+								<ul>
+									<li>Atteinte à la liberté individuelle.</li>
+									<li>Risque de votes peu informés forcés.</li>
+								</ul>
+							</div>
+
+							<table class="stats-table" id="statsVoteobli" aria-label="Statistiques du vote pour le vote obligatoire">
+								<thead>
+									<tr><th>Option</th><th>Votes</th><th>Pourcentage</th></tr>
+								</thead>
+								<tbody>
+									<tr><td>Pour</td><td>—</td><td>—</td></tr>
+									<tr><td>Contre</td><td>—</td><td>—</td></tr>
+									<tr><td>Total</td><td colspan="2">—</td></tr>
+								</tbody>
+							</table>
+
+							<div class="vote" aria-label="Contrôles de vote">
+								<div class="vote-controls">
+									<button class="voteOK" id="voteOKvoteobli" onclick="voterOK('voteobli')">Pour</button>
+									<button class="voteNot" id="voteNotvoteobli" onclick="voterNot('voteobli')">Contre</button>
+								</div>
+								<div class="vote-bar">
+									<div class="segmentpour" id="segmentpourvoteobli"></div>
+									<div class="segmentcontre" id="segmentcontrevoteobli"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+			</main>
+			<footer id="site-footer">
+				<a href="./Credits.html">&copy; OKOrNote</a>
+			</footer>
+		</div>
+
+		<script>
+		(function () {
+			var capsule = 'voteobli';
+			function safeNumber(v) { return Number(v) || 0; }
+			function getStored(name) { if (typeof lsGet === 'function') return lsGet(name); var v = localStorage.getItem(name); return v === null ? null : JSON.parse(v); }
+			function refreshStats() {
+				var pour = safeNumber(getStored('votePour' + capsule));
+				var contre = safeNumber(getStored('voteContre' + capsule));
+				var total = pour + contre;
+				var pPour = total === 0 ? 0 : Math.round((pour / total) * 100);
+				var pContre = 100 - pPour;
+				var tbody = document.querySelector('#statsVoteobli tbody');
+				if (!tbody) return;
+				tbody.innerHTML = '';
+				var tr1 = document.createElement('tr'); tr1.innerHTML = '<td>Pour</td><td>' + pour + '</td><td>' + pPour + ' %</td>';
+				var tr2 = document.createElement('tr'); tr2.innerHTML = '<td>Contre</td><td>' + contre + '</td><td>' + pContre + ' %</td>';
+				var tr3 = document.createElement('tr'); tr3.innerHTML = '<td>Total</td><td colspan="2">' + total + '</td>';
+				tbody.appendChild(tr1); tbody.appendChild(tr2); tbody.appendChild(tr3);
+			}
+			document.addEventListener('DOMContentLoaded', function () { refreshStats(); if (typeof updateUI === 'function') updateUI(capsule); });
+			document.addEventListener('votesChanged', function (e) { if (e && e.detail && e.detail.capsule === capsule) { refreshStats(); if (typeof updateUI === 'function') updateUI(capsule); } });
+			document.addEventListener('click', function (ev) { var id = ev.target && ev.target.id; if (id === 'voteOK' + capsule || id === 'voteNot' + capsule) setTimeout(refreshStats, 50); });
+		})();
+		</script>
+
+		<style>
+		.stats-table{ width: 61.8%; margin-top: 12px; border-collapse: collapse; border: 2px solid black; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: white; }
+		.stats-table th, .stats-table td{ border: 1px solid #ddd; padding: 8px; text-align: center; }
+		.stats-table thead th{ background: #f4f4f4; font-weight: bold; }
+		.proscons h4{ margin: 8px 0 4px; } .proscons ul{ margin: 0 0 8px 20px; }
+		</style>
+	</body>
+</html>

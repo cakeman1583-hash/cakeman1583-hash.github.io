@@ -18,7 +18,7 @@
 				<img id="TitreHeader" src="../Images/OKOrNote.png" alt="Logo OKOrNote" />
 				<p class="tagline">Notez et partagez vos avis</p>
 				<nav id="main-nav">
-					<a href="Accueil.html">Accueil</a><a href="#">Explorer</a><a href="#">Soumettre un vote</a><a href="./Credits.html">Crédits</a>
+					<a href="Accueil.html">Accueil</a><a href="./Credits.html">Crédits</a>
 				</nav>
 			</header>
 			<!--Contenu principal de la page-->
@@ -29,25 +29,25 @@
 				</section>
 				<!--Capsules de sujets de notations-->
 				<section id="capsules">
-					<!-- Exemple de capsule -->
-					<div class="capsule" id="capsuleexemple">
-						<img class="imagecapsule" src="../Images/exemple.webp" alt="Image illustrative exemple" />
+					<!-- capsule sur usb -->
+					<div class="capsule" id="capsuleusb">
+						<img class="imagecapsule" src="../Images/usb.jpg" alt="Image illustrative usb" />
 						<span class="vertical-line"></span>
 						<div class="textcapsule">
 							<!--Sujet de ce qui est à voter-->
-							<a class="titrecapsule" href="./exemple.html">Sujet de ce qui est à voter</a>
+							<a class="titrecapsule" href="./usb.html">Les clés USB de moins de 1 Go</a>
 							<!--Description de ce qui est à voter-->
-							<p class="desccapsule">Description de ce qui est à voter</p>
+							<p class="desccapsule">Nan mais qui utilises ça sérieusement?</p>
 							<!--Boutons de vote Pour ou contre-->
 							<div class="vote">
 								<div class="vote-controls">
-									<button class="voteOK" id="voteOKexemple" onclick="voterOK('exemple')">Pour</button>
-									<button class="voteNot" id="voteNotexemple" onclick="voterNot('exemple')">Contre</button>
+									<button class="voteOK" id="voteOKusb" onclick="voterOK('usb')">Pour</button>
+									<button class="voteNot" id="voteNotusb" onclick="voterNot('usb')">Contre</button>
 								</div>
 								<!-- Barre de vote -->
 								<div class="vote-bar">
-									<div class="segmentpour" id="segmentpourexemple"></div>
-									<div class="segmentcontre" id="segmentcontreexemple"></div>
+									<div class="segmentpour" id="segmentpourusb"></div>
+									<div class="segmentcontre" id="segmentcontreusb"></div>
 								</div>
 							</div>
 						</div>
@@ -58,7 +58,7 @@
 						<span class="vertical-line"></span>
 						<div class="textcapsule">
 							<!--Sujet de ce qui est à voter-->
-							<a class="titrecapsule" href="./ananas.html">Pour ou contre l'ananas sur la pizza ?</a>
+							<a class="titrecapsule" href="./ananas.html">L'ananas sur la pizza</a>
 							<!--Description de ce qui est à voter-->
 							<p class="desccapsule">perso j'ai jamais gouté mais ya beaucoup de gens qui aiment et beaucoup de gens qui detestent.</p>
 							<!-- Boutons de vote Pour ou contre et barre de vote -->
@@ -71,6 +71,52 @@
 								<div class="vote-bar">
 									<div class="segmentpour" id="segmentpourananas"></div>
 									<div class="segmentcontre" id="segmentcontreananas"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- capsule sur le vote obligatoire-->
+					<div class="capsule" id="capsulevote">
+						<img class="imagecapsule" src="../Images/vote.jpg" alt="Image illustrative vote" />
+						<span class="vertical-line"></span>
+						<div class="textcapsule">
+							<!--Sujet de ce qui est à voter-->
+							<a class="titrecapsule" href="./vote.html">Le vote obligatoire</a>
+							<!--Description de ce qui est à voter-->
+							<p class="desccapsule">c'est un sujet très controversé.</p>
+							<!--Boutons de vote Pour ou contre-->
+							<div class="vote">
+								<div class="vote-controls">
+									<button class="voteOK" id="voteOKvoteobli" onclick="voterOK('voteobli')">Pour</button>
+									<button class="voteNot" id="voteNotvoteobli" onclick="voterNot('voteobli')">Contre</button>
+								</div>
+								<!-- Barre de vote -->
+								<div class="vote-bar">
+									<div class="segmentpour" id="segmentpourvoteobli"></div>
+									<div class="segmentcontre" id="segmentcontrevoteobli"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- capsule de pâtes au ketchup -->
+					<div class="capsule" id="capsulepatesketchup">
+						<img class="imagecapsule" src="../Images/pates.jpg" alt="Image illustrative pâtes" />
+						<span class="vertical-line"></span>
+						<div class="textcapsule">
+							<!--Sujet de ce qui est à voter-->
+							<a class="titrecapsule" href="./pates.html">Le ketchup sur les pâtes</a>
+							<!--Description de ce qui est à voter-->
+							<p class="desccapsule">Les italiens ne seront pas contents...</p>
+							<!--Boutons de vote Pour ou contre-->
+							<div class="vote">
+								<div class="vote-controls">
+									<button class="voteOK" id="voteOKpatesketchup" onclick="voterOK('patesketchup')">Pour</button>
+									<button class="voteNot" id="voteNotpatesketchup" onclick="voterNot('patesketchup')">Contre</button>
+								</div>
+								<!-- Barre de vote -->
+								<div class="vote-bar">
+									<div class="segmentpour" id="segmentpourpatesketchup"></div>
+									<div class="segmentcontre" id="segmentcontrepatesketchup"></div>
 								</div>
 							</div>
 						</div>

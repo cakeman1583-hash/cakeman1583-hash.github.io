@@ -69,18 +69,19 @@
     border-radius: 20px;
     box-shadow: 2px 2px 5px grey;
 }
+/* Barre de vote : mise en page flexible, JS contrôle la largeur des segments */
 .vote-bar{
     display: flex;
-    height: 15px;
-    width: 61.8%;
+    height: 20px;
     border-radius: 5px;
     overflow: hidden;
     margin-top: auto;
     margin-bottom: 1%;
     box-shadow: 2px 2px 2px grey;
+    flex: 1 1 auto;
+    min-width: 160px;
 }
 .segmentcontre{
-    width: 38%;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight: bold;
     font-size: 12px;
@@ -88,9 +89,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 0; /* largeur initiale gérée par JS */
+    color: white;
+    padding: 0 6px;
+    white-space: nowrap;
+    overflow: hidden;
+    transition: width 0.25s ease;
+    min-width: 0;
 }
 .segmentpour{
-    width: 62%;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight: bold;
     font-size: 12px;
@@ -98,6 +105,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 0; /* largeur initiale gérée par JS */
+    color: white;
+    padding: 0 6px;
+    white-space: nowrap;
+    overflow: hidden;
+    transition: width 0.25s ease;
+    min-width: 0;
 }
 .vertical-line{
     border-left: 2px solid #000;
@@ -190,7 +204,7 @@ body{
     margin-top: 50px;
     margin-bottom: 30px;
 }
-#capsuleSujetAnanas{
+#capsuleSujetInfo{
     margin-top: 30px;
     margin-bottom: 30px;
 }
