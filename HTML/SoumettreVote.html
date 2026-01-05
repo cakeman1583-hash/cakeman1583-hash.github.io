@@ -5,7 +5,9 @@
 	<head>
 		<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>OKOrNote</title>
+		<meta name="authors" content="cakeman1583-hash, JSCodeur" />
+		<meta name="description" content="Formulaire de soumission d'un nouveau vote avec validation complète" />
+		<title>Créer un Vote — OKOrNote</title>
 		<link rel="icon" href="../Images/favicon.png" type="image/png" />
 		<script type="text/javascript" src="../JS/main.js" defer></script>
 		<link rel="stylesheet" type="text/css" href="../CSS/styles.css" />
@@ -33,7 +35,7 @@
                                 <p>Merci d'avoir proposé un nouveau sujet à la communauté.</p>
                             </div>
 
-                            <form id="formSoumettre" action="#" method="post">
+                            <form id="formSoumettre" action="#" method="post" onsubmit="return soumettreFormulaire();">
                                 <!-- Section: Informations de base -->
                                 <fieldset>
                                     <legend>Informations de base</legend>
@@ -68,7 +70,7 @@
                                     <input type="color" id="couleur" name="couleur" value="#4CAF50" />
 
                                     <label for="priorite">Priorité (0-100)</label>
-                                    <input type="range" id="priorite" name="priorite" min="0" max="100" value="50" />
+                                    <input type="range" id="priorite" name="priorite" min="0" max="100" value="50" onchange="changerPriorite()" />
                                     <span id="valeurPriorite">50</span>
 
                                     <label for="delai">Délai souhaité (en jours)</label>
@@ -167,36 +169,113 @@
         </style>
 
         <script>
-        document.addEventListener('DOMContentLoaded', function () {
+        // Afficher l'heure et date actuelle
+        function afficherDateHeure() {
+            var now = new Date();
+            var jour = now.toLocaleDateString('fr-FR');
+            var heure = now.toLocaleTimeString('fr-FR');
+            var para = document.createElement('p');
+            para.innerHTML = 'Soumis le : ' + jour + ' à ' + heure;
+            para.style.marginTop = '10px';
+            para.style.fontSize = '12px';
+            para.style.color = '#666';
             var form = document.getElementById('formSoumettre');
-            var notification = document.getElementById('notificationSucces');
-            var prioriteRange = document.getElementById('priorite');
-            var valeurPriorite = document.getElementById('valeurPriorite');
+            if (form && form.parentNode) {
+                form.parentNode.appendChild(para);
+            }
+        }
 
-            if (!form || !notification) return;
+        // Vérifier si un email est valide (sans regex complexe)
+        function validerEmail(email) {
+            var parts = email.split('@');
+            return parts.length === 2 && parts[0].length > 0 && parts[1].indexOf('.') > 0;
+        }
 
-            // Afficher la valeur du range en temps réel
-            if (prioriteRange && valeurPriorite) {
-                prioriteRange.addEventListener('input', function () {
-                    valeurPriorite.textContent = this.value;
-                });
+        // Vérifier si une URL est valide
+        function validerUrl(url) {
+            return url === '' || url.indexOf('http://') === 0 || url.indexOf('https://') === 0;
+        }
+
+        // Fonction de validation du formulaire
+        function validerFormulaire() {
+            var titre = document.getElementById('titre');
+            var description = document.getElementById('description');
+            var email = document.getElementById('email');
+            var tel = document.getElementById('tel');
+            var url = document.getElementById('url');
+            var motdepasse = document.getElementById('motdepasse');
+            var conditions = document.getElementById('conditions');
+
+            // Vérifier titre (obligatoire)
+            if (!titre || titre.value.trim() === '') {
+                titre.focus();
+                return false;
             }
 
-            form.addEventListener('submit', function (e) {
-                e.preventDefault();
-                
-                // Afficher la notification
+            // Vérifier description (obligatoire)
+            if (!description || description.value.trim() === '') {
+                description.focus();
+                return false;
+            }
+
+            // Vérifier email si rempli
+            if (email && email.value !== '' && !validerEmail(email.value)) {
+                email.focus();
+                return false;
+            }
+
+            // Vérifier URL si remplie
+            if (url && url.value !== '' && !validerUrl(url.value)) {
+                url.focus();
+                return false;
+            }
+
+            // Vérifier mot de passe au moins 4 caractères
+            if (motdepasse && motdepasse.value.length < 4) {
+                motdepasse.focus();
+                return false;
+            }
+
+            // Vérifier conditions acceptées
+            if (!conditions || !conditions.checked) {
+                conditions.focus();
+                return false;
+            }
+
+            return true;
+        }
+
+        // Gestion du submit du formulaire
+        function soumettreFormulaire() {
+            if (!validerFormulaire()) {
+                return false;
+            }
+
+            var notification = document.getElementById('notificationSucces');
+            var form = document.getElementById('formSoumettre');
+
+            if (notification && form) {
                 notification.style.display = 'block';
-                
-                // Masquer le formulaire après 1 seconde
                 setTimeout(function () {
                     form.style.display = 'none';
                 }, 1000);
+            }
+            return false;
+        }
 
-                // Réinitialiser le formulaire (utile si l'utilisateur veut réafficher)
-                form.reset();
-            });
-        });
+        // Afficher la valeur du range
+        function changerPriorite() {
+            var prioriteRange = document.getElementById('priorite');
+            var valeurPriorite = document.getElementById('valeurPriorite');
+            if (valeurPriorite && prioriteRange) {
+                valeurPriorite.textContent = prioriteRange.value;
+            }
+        }
+
+        // Initialiser à la charge
+        window.onload = function () {
+            afficherDateHeure();
+        };
         </script>
     </body>
 </html>
