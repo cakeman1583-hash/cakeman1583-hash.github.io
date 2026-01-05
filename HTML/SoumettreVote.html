@@ -31,7 +31,7 @@
                             <p class="desccapsule">Proposez un nouveau sujet à la communauté. Remplissez ce formulaire.</p>
 
                             <!-- Notification de succès -->
-                            <div id="notificationSucces" class="notification-success" style="display:none;">
+                            <div id="notificationSucces" class="notification-success">
                                 <p><strong>✓ Vote soumis avec succès!</strong></p>
                                 <p>Merci d'avoir proposé un nouveau sujet à la communauté.</p>
                             </div>
@@ -62,9 +62,9 @@
                                     <legend>Paramètres du vote</legend>
 
                                     <label for="typeVote">Type de vote</label>
-                                    <div style="margin-bottom:12px;">
-                                        <label style="display:inline;margin-right:15px;"><input type="radio" name="typeVote" value="simple" checked /> Vote simple (Pour/Contre)</label>
-                                        <label style="display:inline;"><input type="radio" name="typeVote" value="multiple" /> Vote multiple</label>
+                                    <div>
+                                        <label><input type="radio" name="typeVote" value="simple" checked /> Vote simple (Pour/Contre)</label>
+                                        <label><input type="radio" name="typeVote" value="multiple" /> Vote multiple</label>
                                     </div>
 
                                     <label for="couleur">Couleur d'identification</label>
@@ -100,13 +100,13 @@
                                     <label for="imagePiece">Joindre une image</label>
                                     <input type="file" id="imagePiece" name="imagePiece" accept="image/*" />
 
-                                    <div style="margin-top:12px;">
-                                        <label style="display:block;"><input type="checkbox" name="conditions" id="conditions" /> J'accepte que ce vote soit public</label>
-                                        <label style="display:block;"><input type="checkbox" name="newsletter" id="newsletter" /> M'inscrire à la newsletter</label>
+                                    <div>
+                                        <label><input type="checkbox" name="conditions" id="conditions" /> J'accepte que ce vote soit public</label>
+                                        <label><input type="checkbox" name="newsletter" id="newsletter" /> M'inscrire à la newsletter</label>
                                     </div>
                                 </fieldset>
 
-                                <div style="display:flex;gap:12px;margin-top:12px;">
+                                <div>
                                     <input type="submit" value="Soumettre" />
                                     <input type="reset" value="Annuler" />
                                 </div>
