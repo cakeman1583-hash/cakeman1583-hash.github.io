@@ -10,28 +10,28 @@
 		<meta name="description" content="OKOrNote - Une plateforme de vote communautaire pour partager et noter vos avis sur des sujets variés" />
 		<title>OKOrNote</title>
 		<link rel="icon" href="../Images/favicon.png" type="image/png" />
-		<script type="text/javascript" src="../JS/main.js" defer></script>
-		<script type="text/javascript" src="../JS/navigation.js" defer></script>
+		<script type="text/javascript" src="../JS/main.js" defer="defer"></script>
+		<script type="text/javascript" src="../JS/navigation.js" defer="defer"></script>
 		<link rel="stylesheet" type="text/css" href="../CSS/styles.css" />
 	</head>
 	<body>
 		<div id="page">
 			<!--Header du site (commun à toutes les pages)-->
-			<header id="site-header">
+			<div class="header" id="site-header">
 				<img id="TitreHeader" src="../Images/OKOrNote.png" alt="Logo OKOrNote" />
 				<p class="tagline">Notez et partagez vos avis</p>
-				<nav id="main-nav">
+				<div class="nav" id="main-nav">
 				<a href="./index.html">Accueil</a><a href="./multimedia.html">Multimédia</a><a href="./SoumettreVote.html">Soumettre un vote</a><a href="./Credits.html">Crédits</a><a href="./Logo.html">Notre Logo</a>
-				</nav>
-			</header>
+				</div>
+			</div>
 			<!--Contenu principal de la page-->
-			<main id="content">
-				<section id="hero">
+			<div class="main" id="content">
+				<div class="section" id="hero">
 					<h2>Bienvenue sur OKOrNote</h2>
 					<p>Découvrez et notez des contenus.</p>
-				</section>
+				</div>
 				<!--Capsules de sujets de notations-->
-				<section id="capsules">
+				<div class="section" id="capsules">
 					<!-- capsule sur usb -->
 					<div class="capsule" id="capsuleusb">
 						<img class="imagecapsule" src="../Images/usb.jpg" alt="Image illustrative usb" />
@@ -126,20 +126,20 @@
 					</div>
 
 
-				</section>
-			</main>
+				</div>
+			</div>
 
 			<!-- Navigation entre les pages -->
-			<section class="nav-pagination">
+			<div class="section" class="nav-pagination">
 				<button onclick="allerPrecedent()" disabled="disabled">← Précédent</button>
 				<a href="./index.html">Sommaire</a>
 				<button onclick="allerSuivant()">Suivant →</button>
-			</section>
+			</div>
 
 			<!--Footer du site (commun à toutes les pages)-->
-			<footer id="site-footer">
+			<div class="footer" id="site-footer">
 				<a href="./Credits.html">&copy; OKOrNote</a>
-			</footer>
+			</div>
 		</div>
 	</body>
 </html>

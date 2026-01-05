@@ -10,24 +10,24 @@
 		<meta name="description" content="Page de vote sur l'ananas sur la pizza avec statistiques et débat" />
 		<title>L'ananas sur la pizza — OKOrNote</title>
 		<link rel="icon" href="../Images/favicon.png" type="image/png" />
-		<script type="text/javascript" src="../JS/main.js" defer></script>
-		<script type="text/javascript" src="../JS/navigation.js" defer></script>
+		<script type="text/javascript" src="../JS/main.js" defer="defer"></script>
+		<script type="text/javascript" src="../JS/navigation.js" defer="defer"></script>
 		<link rel="stylesheet" type="text/css" href="../CSS/styles.css" />
 	</head>
 	<body>
 		<div id="page">
 			<!--Header du site (commun à toutes les pages)-->
-			<header id="site-header">
+			<div class="header" id="site-header">
 				<img id="TitreHeader" src="../Images/OKOrNote.png" alt="Logo OKOrNote" />
 				<p class="tagline">Notez et partagez vos avis</p>
-				<nav id="main-nav">
+				<div class="nav" id="main-nav">
 					<a href="./index.html">Accueil</a><a href="./multimedia.html">Multimédia</a><a href="./SoumettreVote.html">Soumettre un vote</a><a href="./Credits.html">Crédits</a><a href="./Logo.html">Notre Logo</a>
-				</nav>
-			</header>
+				</div>
+			</div>
 			<!--Contenu principal de la page-->
-			<main id="content">
+			<div class="main" id="content">
 				<!--Capsules de sujets de notations-->
-				<section id="capsules">
+				<div class="section" id="capsules">
 					<!-- Exemple de capsule -->
 					<div class="capsule" id="capsuleSujetInfo">
 						<div class="textcapsule">
@@ -72,20 +72,20 @@
 						</div>
 					</div>
 					
-				</section>
-			</main>
+				</div>
+			</div>
 
 			<!-- Navigation entre les pages -->
-			<section class="nav-pagination">
+			<div class="section" class="nav-pagination">
 				<button onclick="allerPrecedent()">← Précédent</button>
 				<a href="./index.html">Sommaire</a>
 				<button onclick="allerSuivant()">Suivant →</button>
-			</section>
+			</div>
 
 			<!--Footer du site (commun à toutes les pages)-->
-			<footer id="site-footer">
+			<div class="footer" id="site-footer">
 				<a href="./Credits.html">&copy; OKOrNote</a>
-			</footer>
+			</div>
 		</div>
 		<script type="text/javascript" src="../JS/ananas.js"></script>
 		<script type="text/javascript" src="../JS/recap.js"></script>

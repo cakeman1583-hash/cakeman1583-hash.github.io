@@ -7,21 +7,21 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>OKOrNote</title>
 		<link rel="icon" href="../Images/favicon.png" type="image/png" />
-		<script type="text/javascript" src="../JS/main.js" defer></script>
-		<script type="text/javascript" src="../JS/navigation.js" defer></script>
+		<script type="text/javascript" src="../JS/main.js" defer="defer"></script>
+		<script type="text/javascript" src="../JS/navigation.js" defer="defer"></script>
 		<link rel="stylesheet" type="text/css" href="../CSS/styles.css" />
 	</head>
 	<body>
 		<div id="page">
-			<header id="site-header">
+			<div class="header" id="site-header">
 				<img id="TitreHeader" src="../Images/OKOrNote.png" alt="Logo OKOrNote" />
 				<p class="tagline">Notez et partagez vos avis</p>
-				<nav id="main-nav">
+				<div class="nav" id="main-nav">
 					<a href="./index.html">Accueil</a><a href="./multimedia.html">Multimédia</a><a href="./SoumettreVote.html">Soumettre un vote</a><a href="./Credits.html">Crédits</a><a href="./Logo.html">Notre Logo</a>
-				</nav>
-			</header>
-			<main id="content">
-				<section id="capsules">
+				</div>
+			</div>
+			<div class="main" id="content">
+				<div class="section" id="capsules">
 					<div class="capsule" id="capsuleSujetInfo">
 						<div class="textcapsule">
 							<a class="titrecapsule" href="./vote.html">Le vote obligatoire</a>
@@ -63,19 +63,19 @@
 							</div>
 						</div>
 					</div>
-				</section>
-			</main>
+				</div>
+			</div>
 
 			<!-- Navigation entre les pages -->
-			<section class="nav-pagination">
+			<div class="section" class="nav-pagination">
 				<button onclick="allerPrecedent()">← Précédent</button>
 				<a href="./index.html">Sommaire</a>
 				<button onclick="allerSuivant()">Suivant →</button>
-			</section>
+			</div>
 
-			<footer id="site-footer">
+			<div class="footer" id="site-footer">
 				<a href="./Credits.html">&copy; OKOrNote</a>
-			</footer>
+			</div>
 		</div>
 
 		<script>
